@@ -1,33 +1,39 @@
 @echo off
-REM MediSim CRU Build Script
-REM ISSUE [CRU-02]: Hardcoded paths throughout
-REM ISSUE [DIST-09]: Interactive prompts block CI execution
+REM MediSim CRU Build Script — CI-Compatible Version
 
-REM ISSUE [DIST-09]: Interactive prompt - matches Centargo's SET /P
+REM === VERSION ===
 if "%1"=="" (
-    SET /P VERSION=Enter version number (e.g. 1.0.0): 
-) else (
-    SET VERSION=%1
-)
-
-if "%VERSION%"=="" (
-    echo ERROR: Version number is required
+    echo HATA: Version number gerekli.
+    echo Kullanim: build_cru.cmd 1.0.0
     exit /b 1
 )
-
+SET VERSION=%1
 echo Building MediSim CRU v%VERSION%...
 
-REM ISSUE [CRU-02]: Hardcoded Visual Studio path
-SET MSBUILD_PATH=C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Current\Bin\MSBuild.exe
+REM === PATHS ===
+if "%MEDISIM_MSBUILD_PATH%"=="" (
+    SET MSBUILD_PATH=C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Current\Bin\MSBuild.exe
+) else (
+    SET MSBUILD_PATH=%MEDISIM_MSBUILD_PATH%
+)
 
-REM ISSUE [CRU-02]: Hardcoded NSIS path
-SET NSIS_PATH=C:\Program Files (x86)\NSIS\makensis.exe
+if "%MEDISIM_NSIS_PATH%"=="" (
+    SET NSIS_PATH=C:\Program Files (x86)\NSIS\makensis.exe
+) else (
+    SET NSIS_PATH=%MEDISIM_NSIS_PATH%
+)
 
-REM ISSUE [CRU-02]: Hardcoded output path
-SET OUTPUT_DIR=C:\builds\medisim\CRU\%VERSION%
+if "%MEDISIM_OUTPUT_DIR%"=="" (
+    SET OUTPUT_DIR=C:\builds\medisim\CRU\%VERSION%
+) else (
+    SET OUTPUT_DIR=%MEDISIM_OUTPUT_DIR%\%VERSION%
+)
 
-REM ISSUE [CRU-03]: Warnings suppressed
-"%MSBUILD_PATH%" src\CRU\MediSim.CRU.sln /p:Configuration=Release /p:WarningLevel=0
+echo MSBuild: %MSBUILD_PATH%
+echo Output:  %OUTPUT_DIR%
+
+REM === BUILD ===
+"%MSBUILD_PATH%" src\CRU\MediSim.CRU.sln /p:Configuration=Release
 
 if errorlevel 1 (
     echo BUILD FAILED
@@ -35,10 +41,3 @@ if errorlevel 1 (
 )
 
 echo Build completed. Output: %OUTPUT_DIR%
-
-REM ISSUE: No artifact signing step (matches DIST-08)
-REM ISSUE: No checksum generation (matches INS-04)
-
-REM TODO: Add code signing
-REM TODO: Generate release manifest
-REM FIXME: Output directory not created automatically
