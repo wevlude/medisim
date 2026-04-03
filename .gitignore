@@ -15,3 +15,8 @@ build/
 # OS
 .DS_Store
 Thumbs.db
+
+# Secrets - asla repoya eklenmemeli
+secrets/
+*.key
+*.pem

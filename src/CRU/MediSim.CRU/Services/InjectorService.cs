@@ -19,8 +19,10 @@ namespace MediSim.CRU.Services
         private bool _isConnected = false;
 
         // ISSUE [PLT-05]: Hardcoded credentials - matches CentargoPWs.txt finding
-        private const string API_KEY = "medisim-secret-key-2024";
-        private const string DB_PASSWORD = "admin123!";
+        private static readonly string API_KEY =
+        Environment.GetEnvironmentVariable("MEDISIM_API_KEY") ?? "";
+        private static readonly string DB_PASSWORD =
+        Environment.GetEnvironmentVariable("MEDISIM_DB_PASSWORD") ?? "";
 
         public static InjectorService Instance
         {
