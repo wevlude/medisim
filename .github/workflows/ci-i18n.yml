@@ -1,0 +1,43 @@
+name: I18n Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-translations:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate English JSON
+        run: python3 -m json.tool src/I18n/en/i18n-bundle.json > /dev/null
+
+      - name: Validate Turkish JSON
+        run: python3 -m json.tool src/I18n/tr/i18n-bundle.json > /dev/null
+
+      - name: Check key consistency
+        run: |
+          python3 -c "
+          import json
+
+          with open('src/I18n/en/i18n-bundle.json') as f:
+              en = json.load(f)
+          with open('src/I18n/tr/i18n-bundle.json') as f:
+              tr = json.load(f)
+
+          en_keys = set(en['phrases'].keys())
+          tr_keys = set(tr['phrases'].keys())
+
+          missing_in_tr = en_keys - tr_keys
+
+          if missing_in_tr:
+              print(f'HATA: Turkce dosyada eksik key: {missing_in_tr}')
+              exit(1)
+
+          print(f'BASARILI: Tum {len(en_keys)} key her iki dilde mevcut.')
+          "
