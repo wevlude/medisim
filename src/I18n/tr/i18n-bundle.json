@@ -6,17 +6,20 @@
   },
   "phrases": {
     "app.title": "MediSim Enjeksiyon Sistemi",
-    "app.status.idle": "Hazır",
+    "app.status.idle": "Hazir",
     "app.status.injecting": "Enjeksiyon Devam Ediyor",
-    "app.status.error": "Sistem Hatası",
-    "app.status.disconnected": "Bağlantı Kesildi",
-    "ui.button.start": "Enjeksiyonu Başlat",
+    "app.status.error": "Sistem Hatasi",
+    "app.status.disconnected": "Baglanti Kesildi",
+    "ui.button.start": "Enjeksiyonu Baslat",
     "ui.button.stop": "Acil Durdur",
-    "ui.button.prime": "Sistemi Hazırla",
+    "ui.button.prime": "Sistemi Hazirla",
     "ui.label.volume": "Hacim (mL)",
-    "ui.label.flowRate": "Akış Hızı (mL/s)",
-    "ui.label.pressure": "Basınç (PSI)",
-    "error.connection": "Enjektöre bağlanılamıyor",
-    "error.pressure": "Basınç limiti aşıldı"
+    "ui.label.flowRate": "Akis Hizi (mL/s)",
+    "ui.label.pressure": "Basinc (PSI)",
+    "ui.label.patient": "Hasta Bilgileri",
+    "error.connection": "Enjektore baglanamiyorsun",
+    "error.pressure": "Basinc limiti asildi",
+    "error.volume": "Hacim limiti asildi",
+    "warning.lowBattery": "Dusuk pil uyarisi"
   }
 }
