@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>MediSim.CRU</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- BUG: Warnings suppressed - matches Centargo CRU-03 -->
+    <NoWarn>CS0168;CS0219;CS0414</NoWarn>
+  </PropertyGroup>
+
+</Project>

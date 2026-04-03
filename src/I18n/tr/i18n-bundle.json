@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "locale": "tr",
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-10"
+  },
+  "phrases": {
+    "app.title": "MediSim Enjeksiyon Sistemi",
+    "app.status.idle": "Hazır",
+    "app.status.injecting": "Enjeksiyon Devam Ediyor",
+    "app.status.error": "Sistem Hatası",
+    "app.status.disconnected": "Bağlantı Kesildi",
+    "ui.button.start": "Enjeksiyonu Başlat",
+    "ui.button.stop": "Acil Durdur",
+    "ui.button.prime": "Sistemi Hazırla",
+    "ui.label.volume": "Hacim (mL)",
+    "ui.label.flowRate": "Akış Hızı (mL/s)",
+    "ui.label.pressure": "Basınç (PSI)",
+    "error.connection": "Enjektöre bağlanılamıyor",
+    "error.pressure": "Basınç limiti aşıldı"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "locale": "en",
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-15"
+  },
+  "phrases": {
+    "app.title": "MediSim Injection System",
+    "app.status.idle": "Ready",
+    "app.status.injecting": "Injection in Progress",
+    "app.status.error": "System Error",
+    "app.status.disconnected": "Disconnected",
+    "ui.button.start": "Start Injection",
+    "ui.button.stop": "Emergency Stop",
+    "ui.button.prime": "Prime System",
+    "ui.label.volume": "Volume (mL)",
+    "ui.label.flowRate": "Flow Rate (mL/s)",
+    "ui.label.pressure": "Pressure (PSI)",
+    "ui.label.patient": "Patient Information",
+    "error.connection": "Cannot connect to injector",
+    "error.pressure": "Pressure limit exceeded",
+    "error.volume": "Volume limit exceeded",
+    "warning.lowBattery": "Low battery warning"
+  }
+}
